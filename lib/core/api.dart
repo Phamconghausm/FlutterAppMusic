@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Api {
   static const baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://192.168.1.198:8080/api', // Giá trị mặc định
+    defaultValue: 'https://dnahuabraca.onrender.com/api', // Giá trị mặc định
   );
   static Uri uri(String path) => Uri.parse('$baseUrl$path');
   static final http.Client client = http.Client();
@@ -46,8 +46,10 @@ extension AuthClient on http.Client {
       rethrow;
     }
   }
+
   // POST với xác thực
-  Future<http.Response> postAuth(String path, {Map<String, dynamic>? body}) async {
+  Future<http.Response> postAuth(String path,
+      {Map<String, dynamic>? body}) async {
     try {
       final token = await _getTokenOrThrow();
       print('POST $path with body: $body');
@@ -74,7 +76,8 @@ extension AuthClient on http.Client {
   }
 
   // PUT với xác thực
-  Future<http.Response> putAuth(String path, {Map<String, dynamic>? body}) async {
+  Future<http.Response> putAuth(String path,
+      {Map<String, dynamic>? body}) async {
     try {
       final token = await _getTokenOrThrow();
       print('PUT $path with body: $body');
@@ -124,7 +127,8 @@ extension AuthClient on http.Client {
   }
 
   // POST không cần xác thực (cho login, register)
-  Future<http.Response> postNoAuth(String path, {Map<String, dynamic>? body}) async {
+  Future<http.Response> postNoAuth(String path,
+      {Map<String, dynamic>? body}) async {
     try {
       print('POST $path with body: $body');
       final response = await post(
@@ -151,7 +155,8 @@ extension AuthClient on http.Client {
     if (response.statusCode >= 200 && response.statusCode < 300) {
       return response;
     } else {
-      throw Exception('Server error: ${response.statusCode} - ${response.reasonPhrase}');
+      throw Exception(
+          'Server error: ${response.statusCode} - ${response.reasonPhrase}');
     }
   }
 }
