@@ -58,6 +58,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+            // Bật tạo tệp biểu tượng gỡ lỗi
+            ndk {
+                debugSymbolLevel = "FULL"
+            }
         }
 
         // Debug build type configuration

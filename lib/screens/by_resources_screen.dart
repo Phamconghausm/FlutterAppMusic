@@ -12,22 +12,26 @@ class ByResourcesScreen extends StatelessWidget {
     final List<Map<String, dynamic>> audioApps = [
       {
         'name': 'Spotify',
-        'logo': 'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg',
+        'logo':
+            'https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg',
         'isSvg': true, // SVG
       },
       {
         'name': 'Apple Music',
-        'logo': 'https://upload.wikimedia.org/wikipedia/commons/5/59/Apple_Music_Icon.svg',
+        'logo':
+            'https://upload.wikimedia.org/wikipedia/commons/5/59/Apple_Music_Icon.svg',
         'isSvg': true, // SVG
       },
       {
         'name': 'YouTube',
-        'logo': 'https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg',
+        'logo':
+            'https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg',
         'isSvg': true, // SVG
       },
       {
         'name': 'SoundCloud',
-        'logo': 'https://upload.wikimedia.org/wikipedia/commons/a/a2/Antu_soundcloud.svg',
+        'logo':
+            'https://upload.wikimedia.org/wikipedia/commons/a/a2/Antu_soundcloud.svg',
         'isSvg': true, // SVG
       },
     ];
@@ -50,7 +54,8 @@ class ByResourcesScreen extends StatelessWidget {
               // TopBar
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 10.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -153,7 +158,8 @@ class ByResourcesScreen extends StatelessWidget {
   }
 
   // Widget cho mỗi audio app
-  Widget _buildAudioAppItem(BuildContext context, String name, String logoUrl, bool isSvg) {
+  Widget _buildAudioAppItem(
+      BuildContext context, String name, String logoUrl, bool isSvg) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
       child: GestureDetector(
@@ -174,7 +180,7 @@ class ByResourcesScreen extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
+              SizedBox(
                 width: 40,
                 height: 40,
                 child: ClipRRect(
